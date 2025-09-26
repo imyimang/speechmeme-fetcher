@@ -2,6 +2,7 @@
 
 This project is a Discord bot that fetches and displays random GIFs from speechmeme.com by reverse-engineering its API.
 ![alt text](image.png)
+[Invite the bot](https://discord.com/oauth2/authorize?client_id=1421194406601691178)
 
 ## Features
 - Fetches the latest speechmeme posts from the official API
