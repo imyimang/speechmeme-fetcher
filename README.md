@@ -1,23 +1,22 @@
 # Speechmeme Fetcher
 
-This project is a Discord bot that fetches and displays random GIFs from speechmeme.com by reverse-engineering its API.
+This project is a Discord bot that fetches and displays GIFs from speechmeme.com by reverse-engineering its backend Firestore API.
 
 ![alt text](image.png)
 
 [Invite the bot](https://discord.com/oauth2/authorize?client_id=1421194406601691178)
-
 ## Features
-- Fetches the latest speechmeme posts from the official API
-- Caches results locally to reduce API calls
+- Fetches the latest speechmeme posts by directly querying the Firestore backend
+- Caches results locally to reduce repeated requests
 - Provides a Discord slash command to display random speechmeme GIFs
-- Supports user install and multiple contexts (guild, DM, private channel)
+- Supports user install (can be installed by individual Discord users, not just server admins)
+- Supports multiple contexts (guild, DM, private channel)
 
 ## Technical Details
-- Fetches up to 100 latest speechmeme GIFs from speechmeme.com when the local cache is older than 2 hours
-- Uses a caching mechanism to minimize unnecessary API requests
-- Integrates with Discord using discord.py and slash commands
-- Stores cached data locally for fast retrieval
-- Handles cache expiration and refresh automatically
+- Utilizes requests for HTTP POST calls to the Firestore API endpoint
+- Caching is implemented via a local JSON file with expiration logic (default: 2 hours)
+- Speechmeme data is fetched by sending a custom query to the Firestore REST API, imitating the website's backend requests
+- The bot uses Discord application commands (slash commands) for interaction
 
 ## Setup
 1. Clone this repository
